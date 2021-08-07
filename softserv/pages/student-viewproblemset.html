@@ -1,0 +1,63 @@
+<div class="container" id="nav-bar">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">WebWork</a>
+    </div>
+    <ul class="nav navbar-nav">
+    	<li class="active"><a href="../softserv/#!student-problemsets">Problem Sets</a></li>
+    </ul>
+  </div>
+</nav>
+</div>
+<div class="jumbotron" align="center" style="background:transparent !important" >
+   <span class="big dark-grey b">
+   WebWork
+   </span>
+</div>
+<div class="container">
+	<form>
+	<div id="print">
+	<div id="printcontained">
+   <span class="med dark-grey b">
+   Problem Set {{problemsetid}}
+   </span>
+	   <div class="container">
+		   <div class="viewquestion" ng-repeat="(questionid, questiondata) in problemset">
+			   <span class="sma dark-grey">
+				   Question {{$index + 1}}:
+				   <br/>
+				   {{questiondata.text}}
+			   </span>
+			   &nbsp;
+			   <input type="text" ng-model="stuAnswer[$index]">
+			   &nbsp;
+			</div>
+		</div>
+	</div>
+		</div>
+	&nbsp;
+	<div>
+	<a href="javascript:demoFromHTML()" class="btn btn-default col-sm-4" style="margin-right: 20px">Download as a PDF</a>
+	<input class="btn btn-default submit-answers col-sm-4" type="submit" ng-click="checkanswers()">
+	</div>
+	&nbsp;
+	<div>
+		&nbsp;
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>Your Answer</th>
+					<th>Correct Answer</th>
+					<th>Result</th>
+				</tr>
+			</thead>
+			<tbody id="display-answers">
+			</tbody>
+		</table>
+	</div>
+	</form>
+	</div>
+<div class="container">
+	<span class='med dark-grey b' ng-show="show_mark">Your Mark is {{mark * 100}} %</span>
+</div>
